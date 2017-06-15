@@ -4,7 +4,7 @@ struct my_complex{
 };
 
 void print_result(int res_real, int res_image);
-void add(int a, int aa, int b, int bb);
+void add(struct my_complex *x, struct my_complex);
 void sub(int a, int aa, int b, int bb);
 void mul(int a, int aa, int b, int bb);
 
