@@ -4,45 +4,36 @@
 
 int main()
 {
-	int user_char, ch;
-	struct my_complex *x = malloc(sizeof(int));
-	struct my_complex *y = malloc(sizeof(int));
+	char user_char;
+	char ch;
 
+	my_complex *x = malloc(sizeof(my_complex));
+	my_complex *y = malloc(sizeof(my_complex));
+	my_complex *result = malloc(sizeof(my_complex));
+
+	printf("\n\nWhat operation do you want to perfome?\nChoose 1 - 5:\n1. Add\n2. Sub\n3. Mul\n4. Div\n5. Quit\n");
+	user_char = getchar();
 	while(1){
-		printf("\n\nWhat operation do you want to perfome?\nChoose 1 - 5:\n1. Add\n2. Sub\n3. Mul\n4. Div\n5. Quit\n");
-		user_char = getchar();
 		switch(user_char){
 			case '1':
-				enter_data(x,y);
-				add(x,y);
-			case '5':
-				return 0;
-
+				fflush(NULL);
+				enter_data(x, y);
+				result = add(x, y);
+			case '2':
+				fflush(NULL);
+				enter_data(x, y);
+				result = sub(x,y);
+			case '3':
+				fflush(NULL);
+				enter_data(x, y);
+				result = mul(x, y);
 		}
-	/*	if(user_char == 1)
-			add(x.real, x.image, y.real, y.image);
-		else
-			if(user_char == 2)
-				sub(x.real, x.image, y.real, y.image);
-			else
-				if(user_char == 3)
-					mul(x.real, x.image, y.real, y.image);
-				else
-					if(user_char == 5)
-						exit(0);
-	*/
 
+		printf("Want to get out? [Yes - 1/No - 0]\n");
+		scanf("%c", &ch);
+		if(ch == 1)
+		    exit(0);
 	}
-//	switch(user_char){
-//		case '1':
-//			add(x.real, x.image, y.real, y.image);
-//			case '2':
-//				sub();
-//			case '3':
-//				mul();
-//			case '4':
-//				div();
-//	}
-//	}
+
 	return 0;
 }

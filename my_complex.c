@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "my_complex.h"
 
-void enter_data(struct my_complex *x, struct my_complex *y)
+void enter_data(my_complex *x, my_complex *y)
 {
 
 	printf("\nEnter real and image part of the first number:\t");
@@ -11,35 +11,47 @@ void enter_data(struct my_complex *x, struct my_complex *y)
         scanf("%d %d", &y->real, &y->image);
 }
 
-void print_result(int res_real, int res_image)
+void print_result(my_complex *result)
 {
-	if(res_image > 0)
-		printf("\n\nResult:\t%d+%di\n", res_real, res_image);
+	if(result->image > 0)
+		printf("\n\nResult:\t%d+%di\n", result->real, result->image);
 	else
-		printf("\n\nResult:\t%d%di\n", res_real, res_image);
+		printf("\n\nResult:\t%d%di\n", result->real, result->image);
 
 }
-void add(struct my_complex *x, struct my_complex *y)
+
+my_complex* add(my_complex *x, my_complex *y)
 {
-	struct my_complex *result = malloc(sizeof(int));
+	my_complex *result = malloc(sizeof(my_complex));
 
 	result->real = x->real + y->real;
-	result->image = x->image + x->image;
+	result->image = x->image + y->image;
 
-	print_result(result_real, result_image);
+	print_result(result);
+
+	return result;
 }
 
-void sub(int a, int aa, int b, int bb)
+my_complex* sub(my_complex *x, my_complex *y)
 {
-	int sub_real = a - b;
-	int sub_image = aa - bb;
+	my_complex *result = malloc(sizeof(my_complex));
 
-	print_result(sub_real, sub_image);
+	result->real = x->real - y->real;
+	result->image = x->image - y->image;
+
+	print_result(result);
+
+	return result;
 }
-void mul(int a, int aa, int b, int bb)
+my_complex* mul(my_complex *x, my_complex *y)
 {
-	int mul_real = a*b - aa * bb;
-	int mul_image = a* bb + aa * b;
+	my_complex *result = malloc(sizeof(my_complex));
 
-	print_result(mul_real, mul_image);
+	result->real = x->real * y->real - x->image * y->image;
+	result->image = x->real * y->image + x->image * y->real;
+
+	print_result(result);
+
+	return result;
 }
+

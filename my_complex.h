@@ -1,10 +1,15 @@
-struct my_complex{
+#ifndef MY_COMPLEX_H_
+#define MY_COMPLEX_H_
+
+typedef struct MyComplex{
 	int real;
 	int image;
-};
+} my_complex;
 
-void print_result(int res_real, int res_image);
-void add(struct my_complex *x, struct my_complex);
-void sub(int a, int aa, int b, int bb);
-void mul(int a, int aa, int b, int bb);
+void enter_data(my_complex *x, my_complex *y);
+void print_result(my_complex *result);
+my_complex* add(my_complex *x, my_complex *y);
+my_complex* sub(my_complex *x, my_complex *y);
+my_complex* mul(my_complex *x, my_complex *y);
 
+#endif
