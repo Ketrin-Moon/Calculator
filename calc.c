@@ -11,9 +11,9 @@ int main()
 	my_complex *y = malloc(sizeof(my_complex));
 	my_complex *result = malloc(sizeof(my_complex));
 
-	printf("\n\nWhat operation do you want to perfome?\nChoose 1 - 5:\n1. Add\n2. Sub\n3. Mul\n4. Div\n5. Quit\n");
-	user_char = getchar();
 	while(1){
+	    printf("\n\nWhat operation do you want to perfome?\nChoose 1 - 5:\n1. Add\n2. Sub\n3. Mul\n4. Div\n5. Quit\n");
+    	    user_char = getchar();
 		switch(user_char){
 			case '1':
 				fflush(NULL);
@@ -27,12 +27,21 @@ int main()
 				fflush(NULL);
 				enter_data(x, y);
 				result = mul(x, y);
+			case '4':
+				fflush(NULL);
+				enter_data(x, y);
+				result = my_div(x, y);
+				printf("\nResult:\t %.1lf%.1lfi\n", result->real, result->image);
+			case '5':
+				return 0;
 		}
 
 		printf("Want to get out? [Yes - 1/No - 0]\n");
 		scanf("%c", &ch);
 		if(ch == 1)
 		    exit(0);
+		else
+			continue;
 	}
 
 	return 0;
