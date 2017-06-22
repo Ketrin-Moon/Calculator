@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/my_complex.h"
-
+#include <dlfcn.h>
+#include <../include/my_complex.h>
 int main()
 {
 	char user_char;
-	int ch;
 
 	my_complex *x = malloc(sizeof(my_complex));
 	my_complex *y = malloc(sizeof(my_complex));
@@ -29,13 +28,13 @@ int main()
 				fflush(NULL);
 				enter_data(x, y);
 				result = mul(x, y);
-				printf("\nResult:\t %.1lf %.1lfi\n", result->real, result->image);
+				printf("\nResult:\t %.1f %.1fi\n", result->real, result->image);
 				break;
 			case '4':
 				fflush(NULL);
 				enter_data(x, y);
 				result = my_div(x, y);
-				printf("\nResult:\t %.1lf %.1lfi\n", result->real, result->image);
+				printf("\nResult:\t %.1f %.1fi\n", result->real, result->image);
 				break;
 			case '5':
 				exit(0);
