@@ -1,0 +1,18 @@
+SOURCES = add.c  mul.c sub.c div.c
+OBJECTS =$(SOURCES:.c=.o)
+LIBS = $(addprefix lib, $(SOURCES:.c=.so))
+
+all:$(LIBS)
+			
+lib%.so: %.o	
+		echo $@ - $<
+		gcc -shared $< -o $@
+
+%.o: %.c
+		gcc -c $< -fPIC
+
+.PHONY: clean
+
+clean:
+		rm -rf *.so
+

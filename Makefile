@@ -1,5 +1,5 @@
 SUBDIRS = src lib 
-OBJECTS = calc.o my_complex.o
+OBJECTS = main.o enter_data.o
 
 vpath %.c src:lib
 vpath %.h include
@@ -7,7 +7,7 @@ vpath %.o src:lib
 
 CC:=gcc
 CFLAGS+= -O2 -Wall -pedantic -ansi
-LDFLAGS+=
+LDFLAGS+= -ldl -lncurses
 
 .PHONY: subdirs $(SUBDIRS)
 

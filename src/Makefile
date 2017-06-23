@@ -1,2 +1,2 @@
-calc.o: calc.c
-		gcc -c calc.c
+main.o: main.c
+		gcc -c main.c
